@@ -2913,7 +2913,7 @@ function user_run
 	log_note "user: $user"
 	log_note "cmd: $*"
 
-	if ! sudo -Eu $user test -x $PATH ; then
+	if ! sudo -u $user test -x $PATH ; then
 		log_note "-------------------------------------------------"
 		log_note "Warning: $user doesn't have permissions on $PATH"
 		log_note ""
