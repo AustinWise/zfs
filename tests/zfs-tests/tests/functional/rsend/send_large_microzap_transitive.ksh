@@ -68,8 +68,7 @@ log_onexit cleanup
 set_tunable64 ZAP_MICRO_MAX_SIZE 1048576
 
 # Ensure the third pool exists.
-datasetexists $POOL2 && log_must zpool destroy $POOL2
-log_must zpool create -d $POOL2 $DISK2
+datasetexists $POOL3 || log_must zpool create $POOL3 $DISK2
 
 # Create a dataset with a large recordsize (1MB)
 log_must zfs create -o recordsize=1M $src
